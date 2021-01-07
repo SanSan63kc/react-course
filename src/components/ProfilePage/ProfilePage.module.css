@@ -1,0 +1,9 @@
+.app__content{
+    padding: 10px 10px;
+    grid-area:c;
+    background-color:gray;
+  }
+  
+  .app__content img{
+    width: 200px;
+  }

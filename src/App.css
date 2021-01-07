@@ -11,22 +11,3 @@
   grid-template-columns: 2fr 10fr;
   /* grid-gap:10px; */
 }
-
-.app-header{
-  grid-area:h;
-  background-color: blue;
-}
-
-.app-nav{
-  grid-area:n;
-  background-color:green;
-}
-
-.app-content{
-  grid-area:c;
-  background-color:gray;
-}
-
-.app-content img{
-  width: 200px;
-}

@@ -1,0 +1,26 @@
+.app__content{
+    grid-area:c;
+    background-color:gray;
+  }
+
+  .post__item{
+    padding: 0 15px;
+    display:flex;
+    margin-bottom: 20px;
+    align-items: center;
+
+  }
+
+  .post__avatar{
+    max-width: 90px;
+    border: 2px solid blue;
+    border-radius: 50%;
+  }
+
+  .post__text{
+    padding: 0 20px;
+    color:Black;
+
+  }
+
+  

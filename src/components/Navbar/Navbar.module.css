@@ -1,0 +1,28 @@
+.page__navbar{
+  grid-area:n;
+  background-color:green;
+  margin: 0;
+}
+
+.navbar__item:first-child{
+  margin-top: 30px;
+}
+
+.navbar__item{
+  color:white;
+  display:flex;
+  flex-direction: inherit;
+  justify-content: center;
+}
+
+.navbar__item.active{
+  color:blue;
+  font-weight: 700;
+}
+
+.navbar__item:hover{
+  color:green;
+  background-color: white;
+  cursor: pointer;
+  border-radius:5px;
+}
