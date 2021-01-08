@@ -3,6 +3,8 @@
     max-width: 380px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .subscribe__input {

@@ -16,9 +16,8 @@ const MyPosts = ()=>{
           </div>
 
           <div>
-            <Post/>
-            <Post/>
-            <Post/>
+            <Post message="Hi, how are you" likes="13" comment="14"/>
+            <Post message="It's my first post" likes="12"comment="15"/>
           </div>
         </div>
 

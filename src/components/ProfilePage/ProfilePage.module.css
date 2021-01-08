@@ -1,7 +1,7 @@
 .app__content{
     padding: 10px 10px;
     grid-area:c;
-    background-color:gray;
+    background-color:#edeef0;
   }
   
   .app__content img{
