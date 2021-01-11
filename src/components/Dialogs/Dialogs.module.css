@@ -1,12 +1,50 @@
-.page__content{
-  background-color: #edeef0;
-}
-
-.userDialogs{
-
-}
-
 .dialogs{
   display: grid;
   grid-template-columns: 2fr 8fr;
+  /* display:flex; */
+}
+
+.user__list{
+ /*  width: 20%; */
+  height: 23px;
+  line-height: 23px;
+ 
+}
+
+.user__item{
+  background-color: white;
+  border: 1px solid blue;
+  padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 1px;
+}
+
+.user__item:hover{
+  background-color:#edeef0;
+  cursor: pointer;
+}
+
+.user__item.activeDialog{
+  font-weight: 500;
+}
+
+.message__list{
+  /* width: 60%; */
+  height: 50px;
+  line-height: 50px;
+  padding-left: 5px;
+}
+
+.message__item{
+  background-color: white;
+  border: 1px solid blue;
+  padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-top: 1px;
+}
+
+.message__item:hover{
+  cursor: pointer;
 }

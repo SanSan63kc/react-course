@@ -15,7 +15,7 @@ const App =()=>{
       <div className="main__page__content">
         <Header/>
         <Navbar/>
-        <div className="main__content">
+        <div className="profile__page__content">
           <Route path="/profile" component={ProfilePage}/>
           <Route path="/dialogs" component={Dialogs}/>
           <Route path="/news" component={News}/>

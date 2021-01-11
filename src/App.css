@@ -10,10 +10,9 @@
 
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  /* grid-gap:10px; */
 }
 
-.main__content{
+.profile__page__content{
     padding: 10px 10px;
     grid-area:c;
     background-color:#edeef0;
