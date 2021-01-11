@@ -1,8 +1,9 @@
-.app-wrapper{
+.main__page__content{
   display:grid;
+  min-height: 600px;
   width:1200px;
   margin: 0 auto;
-
+  background-color:#edeef0;
   grid-template-areas:
   "h h"
   "n c";
@@ -10,4 +11,10 @@
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   /* grid-gap:10px; */
+}
+
+.main__content{
+    padding: 10px 10px;
+    grid-area:c;
+    background-color:#edeef0;
 }

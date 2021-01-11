@@ -1,9 +1,4 @@
-.app__content{
-    padding: 10px 10px;
-    grid-area:c;
-    background-color:#edeef0;
-  }
-  
-  .app__content img{
+ .title__pict img{
     width: 200px;
-  }
+    border-radius: 3px;
+  } 

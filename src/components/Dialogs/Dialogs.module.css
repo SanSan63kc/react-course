@@ -1,0 +1,12 @@
+.page__content{
+  background-color: #edeef0;
+}
+
+.userDialogs{
+
+}
+
+.dialogs{
+  display: grid;
+  grid-template-columns: 2fr 8fr;
+}

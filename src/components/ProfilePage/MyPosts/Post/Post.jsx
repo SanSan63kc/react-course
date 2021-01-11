@@ -15,13 +15,13 @@ const Post = (props)=>{
               
               <div className={classes.post__footer}>
                 <div className={classes.likes__block}>
-                  <i class="far fa-heart"></i>
+                  <i className="far fa-heart"></i>
                   <div className={classes.likescount}>
                     {props.likes}
                   </div>
                 </div>
                 <div className={classes.comments__block}>
-                  <i class="far fa-comment"></i>
+                  <i className="far fa-comment"></i>
                   <div className={classes.commentscount}>
                     {props.comment}
                   </div>

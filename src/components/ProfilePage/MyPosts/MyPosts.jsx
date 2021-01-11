@@ -9,7 +9,7 @@ const MyPosts = ()=>{
           My posts
           <div>     
             <form className={classes.subscribe} action="/" method="post">
-              <input className={classes.subscribe__input} type="email" name="name" placeholder="Введи какой-нибудь текст"></input>
+              <input className={classes.subscribe__input} type="text" name="name" placeholder="Напишите что-нибудь..."></input>
               <button className={classes.subscribe__btn} type="submit">Отправить</button>
             </form>
             
