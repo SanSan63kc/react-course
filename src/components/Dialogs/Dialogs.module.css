@@ -1,23 +1,24 @@
 .dialogs{
   display: grid;
   grid-template-columns: 2fr 8fr;
-  /* display:flex; */
 }
 
-.user__list{
- /*  width: 20%; */
-  height: 23px;
-  line-height: 23px;
- 
+.user__link{
+  text-decoration: none;
 }
 
 .user__item{
+  height: 30px;
+  line-height: 30px;
+  border-top: 1px solid blue;
+  border-left: 1px solid blue;
+  border-right: 1px solid blue;
   background-color: white;
-  border: 1px solid blue;
-  padding-left: 10px;
-  white-space: nowrap;
-  overflow: hidden;
-  margin-top: 1px;
+  display: flex;
+}
+
+.user__item:last-child{
+  border-bottom: 1px solid blue;
 }
 
 .user__item:hover{
@@ -25,26 +26,40 @@
   cursor: pointer;
 }
 
-.user__item.activeDialog{
-  font-weight: 500;
-}
-
-.message__list{
-  /* width: 60%; */
-  height: 50px;
-  line-height: 50px;
-  padding-left: 5px;
-}
-
-.message__item{
-  background-color: white;
-  border: 1px solid blue;
+.user__name{
+  font-size: 14px;
+  color: black;
   padding-left: 10px;
   white-space: nowrap;
   overflow: hidden;
-  margin-top: 1px;
 }
 
-.message__item:hover{
-  cursor: pointer;
+.user__item.activeUser{
+  font-weight: 500;
 }
+
+.user__avatar{
+  padding-left: 5px;
+}
+
+.user__avatar img{
+  border-radius:30px;
+}
+
+.dialog__list{
+  padding-left: 20px;
+}
+
+.dialog__item{
+   height: 30px;
+   line-height: 30px;
+   border: 1px solid blue;
+   margin-top: 3px;
+ }
+ 
+ .dialog__text{
+   background-color: white;
+   padding-left: 10px;
+   white-space: nowrap;
+   overflow: hidden;
+ }
