@@ -4,6 +4,17 @@ import Post from './Post/Post';
 
 
 const MyPosts = ()=>{
+
+  let postsData=[
+    {userId: 1, message:'It is my First post', likes:13, comments:12},
+    {userId: 2, message:'It is my second post',likes:14, comments:8},
+    {userId: 3, message:'It is my thirdt post',likes:25, comments:17}
+  ]
+
+  let postElements=postsData.map(
+    pd=><Post message={pd.message} likes={pd.likes} comment={pd.comments}/>
+  )
+
     return(
         <div>
           My posts
@@ -11,13 +22,11 @@ const MyPosts = ()=>{
             <form className={classes.subscribe} action="/" method="post">
               <input className={classes.subscribe__input} type="text" name="name" placeholder="Напишите что-нибудь..."></input>
               <button className={classes.subscribe__btn} type="submit">Отправить</button>
-            </form>
-            
+            </form>  
           </div>
-
+          
           <div>
-            <Post message="Hi, how are you" likes="13" comment="14"/>
-            <Post message="It's my first post" likes="12"comment="15"/>
+            {postElements}
           </div>
         </div>
 

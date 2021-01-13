@@ -9,10 +9,10 @@ const DialogUserLink=(props)=>{
   let urlPath="/dialogs/"+props.userId
   
   return(
-    <NavLink className={classes.user__link}to={urlPath} >
+    <NavLink className={classes.user__link} to={urlPath} >
       <div className={classes.user__item}>
         <div className={classes.user__avatar}>
-          <img src={props.userAvatar}/>
+          <img src={props.userAvatar} alt=""/>
         </div>
         <div className={classes.user__name}>
             {props.name}    
@@ -30,19 +30,44 @@ const DialogWithUser=(props)=>{
   )
 }
 
-const Dialogs = ()=>{
+const Dialogs = (props)=>{
+
+  let dialogsData=[
+    {id: 1, name:'First User', avatar:TempUserAvatar},
+    {id: 2, name:'Second User', avatar:TempUserAvatar},
+    {id: 3, name:'Third User', avatar:TempUserAvatar}
+  ]
+
+  let messagesData=[
+    {userId: 1, message:'First Message'},
+    {userId: 2, message:'Second Message'},
+    {userId: 3, message:'Third Message'}
+  ]
+
+  let dialogElements=dialogsData
+    .map(d=>
+      <DialogUserLink 
+        name={d.name} 
+        userId={d.id} 
+        userAvatar={d.avatar}
+      />
+      )
+
+  let messagesElements=messagesData
+    .map(m=>
+      <DialogWithUser 
+        message={m.message}
+      />
+      )
+
     return(
       <div className={classes.dialogs}>
         <div className={classes.user__list}>
-          <DialogUserLink name="First User" userId="1" userAvatar={TempUserAvatar}/>
-          <DialogUserLink name="Second User" userId="2" userAvatar={TempUserAvatar}/>
-          <DialogUserLink name="Third User" userId="3" userAvatar={TempUserAvatar}/>
+          {dialogElements}
         </div> 
 
         <div className={classes.dialog__list}>
-          <DialogWithUser message="First message"/>
-          <DialogWithUser message="Second message"/>
-          <DialogWithUser message="Third message"/> 
+          {messagesElements} 
         </div>   
       </div>
     )
