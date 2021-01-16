@@ -9,15 +9,20 @@ import News from './components/News/News';
 import ProfilePage from './components/ProfilePage/ProfilePage';
 import Settings from './components/Settings/Settings';
 
-const App =()=>{
+const App=(props)=>{
+
   return (
     <BrowserRouter>
       <div className="main__page__content">
         <Header/>
         <Navbar/>
         <div className="profile__page__content">
-          <Route path="/profile" component={ProfilePage}/>
-          <Route path="/dialogs" component={Dialogs}/>
+          <Route path="/profile" 
+            render={()=><ProfilePage 
+              state={props.state.profilePage}/>}/>
+          <Route path="/dialogs" 
+            render={()=><Dialogs
+              state={props.state.dialogsPage}/>}/>
           <Route path="/news" component={News}/>
           <Route path="/music" component={Music}/>
           <Route path="/settings" component={Settings}/>

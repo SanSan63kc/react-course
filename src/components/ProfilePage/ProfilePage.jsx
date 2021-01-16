@@ -3,12 +3,13 @@ import MyPosts from './MyPosts/MyPosts'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 import classes from './ProfilePage.module.css'
 
-const ProfilePage = ()=>{
-    return(
+const ProfilePage = (props)=>{
+  
+
+  return(
       <div >
         <ProfileInfo/>
-        <MyPosts/>
-
+        <MyPosts postsData={props.state.postsData}/>
       </div>
     )
 }

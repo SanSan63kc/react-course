@@ -3,15 +3,15 @@ import React from 'react'
 import Post from './Post/Post';
 
 
-const MyPosts = ()=>{
-
+const MyPosts = (props)=>{
+/* 
   let postsData=[
     {userId: 1, message:'It is my First post', likes:13, comments:12},
     {userId: 2, message:'It is my second post',likes:14, comments:8},
     {userId: 3, message:'It is my thirdt post',likes:25, comments:17}
   ]
-
-  let postElements=postsData.map(
+ */
+  let postElements=props.postsData.map(
     pd=><Post message={pd.message} likes={pd.likes} comment={pd.comments}/>
   )
 
