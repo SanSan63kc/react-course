@@ -15,14 +15,22 @@ const MyPosts = (props)=>{
     pd=><Post message={pd.message} likes={pd.likes} comment={pd.comments}/>
   )
 
+    let newPostElement = React.createRef();
+    
+    let addPost= ()=>{
+      let text = newPostElement.current.value
+      props.addPost(text)
+      newPostElement.current.value=''
+    }
+
     return(
         <div>
           My posts
           <div>     
-            <form className={classes.subscribe} action="/" method="post">
-              <input className={classes.subscribe__input} type="text" name="name" placeholder="Напишите что-нибудь..."></input>
-              <button className={classes.subscribe__btn} type="submit">Отправить</button>
-            </form>  
+            <div className={classes.subscribe}>
+              <input  ref={newPostElement} className={classes.subscribe__input} type="text" name="name" placeholder="Напишите что-нибудь..."></input>
+              <button className={classes.subscribe__btn} onClick={addPost} type="button">Отправить</button>
+            </div>  
           </div>
           
           <div>

@@ -21,7 +21,15 @@ const Dialogs = (props)=>{
       />
       )
 
+      let newPostElement = React.createRef();
+    
+      let addMessage= ()=>{
+        let text = newPostElement.current.value
+        alert(text)
+      }
+
     return(
+
       <div className={classes.dialogs}>
         <div className={classes.user__list}>
           {dialogElements}
@@ -29,6 +37,12 @@ const Dialogs = (props)=>{
 
         <div className={classes.dialog__list}>
           {messagesElements} 
+          {/* Начало редактируемой формы */}
+          <form className={classes.addMess}>
+              <input  ref={newPostElement} className={classes.addMess__input} type="text" name="name" placeholder="Напишите что-нибудь..."></input>
+              <button className={classes.addMess__btn} onClick={addMessage} type="submit">Отправить</button>
+          </form> 
+          {/* Конец редактируемой формы */}
         </div>   
       </div>
     )

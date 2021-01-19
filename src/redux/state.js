@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render"
+
     let  TempUserAvatar = "http://placehold.it/30"
 
     let state={
@@ -21,5 +23,17 @@
             ]
         }    
     }
+
+export let addPost=(postMessage)=>{
+    
+    let newPost={
+        userId:4,
+        message:postMessage,
+        likes:13, 
+        comments:12
+    }
+    state.profilePage.postsData.push(newPost)
+    rerenderEntireTree(state)
+}
 
 export default state
