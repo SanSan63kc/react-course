@@ -18,9 +18,12 @@ const MyPosts = (props)=>{
     let newPostElement = React.createRef();
     
     let addPost= ()=>{
+      props.addPost()
+    }
+
+    let onPostChange=()=>{
       let text = newPostElement.current.value
-      props.addPost(text)
-      newPostElement.current.value=''
+      props.updateNewPostText(text)
     }
 
     return(
@@ -28,7 +31,14 @@ const MyPosts = (props)=>{
           My posts
           <div>     
             <div className={classes.subscribe}>
-              <input  ref={newPostElement} className={classes.subscribe__input} type="text" name="name" placeholder="Напишите что-нибудь..."></input>
+              <textarea  
+                ref={newPostElement} 
+                onChange={onPostChange} 
+                className={classes.subscribe__input} 
+                type="text" name="name" 
+                /* placeholder="Напишите что-нибудь..." */ 
+                value={props.newPostText}>
+              </textarea>
               <button className={classes.subscribe__btn} onClick={addPost} type="button">Отправить</button>
             </div>  
           </div>
