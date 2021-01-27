@@ -1,5 +1,7 @@
 const ADD_POST='ADD-POST'
 const UPDATE_NEW_POST_TEXT='UPDATE-NEW-POST-TEXT'
+const UPDATE_NEW_MESSAGE_BODY='UPDATE-NEW-MESSAGE-BODY'
+const SEND_MESSAGE = 'SEND-MESSAGE'
 
 let store={
     _state:{
@@ -9,7 +11,7 @@ let store={
                 {userId: 2, message:'It is my second post',likes:14, comments:8},
                 {userId: 3, message:'It is my third post',likes:25, comments:17}
             ],
-            newPostText:'Какой-то текст'
+            newPostText:''
         },
         dialogsPage:{
             dialogsData:[
@@ -21,7 +23,8 @@ let store={
                 {userId: 1, message:'First Message'},
                 {userId: 2, message:'Second Message'},
                 {userId: 3, message:'Third Message'}
-            ]
+            ],
+            newMessageBody:''
         }    
     },
     _callSubscriber(){
@@ -49,6 +52,14 @@ let store={
         } else if (action.type===UPDATE_NEW_POST_TEXT){
             this._state.profilePage.newPostText = action.newText
             this._callSubscriber(this._state)
+        } else if (action.type===UPDATE_NEW_MESSAGE_BODY){
+            this._state.dialogsPage.newMessageBody = action.body
+            this._callSubscriber(this._state)
+        } else if (action.type===SEND_MESSAGE){
+            let body = this._state.dialogsPage.newMessageBody
+            this._state.dialogsPage.newMessageBody=''
+            this._state.dialogsPage.messagesData.push({userId: 6, message:body})
+            this._callSubscriber(this._state)
         }
     }
 }
@@ -61,7 +72,19 @@ export const addPostActionCreator=()=>{
   
 export const updateNewPostTextActionCreator=(text)=>{
     return{
-      type:"UPDATE-NEW-POST-TEXT",newText:text
+      type:UPDATE_NEW_POST_TEXT,newText:text
+    }
+  }
+
+export const sendMessageCreator=()=>{
+    return{
+      type:SEND_MESSAGE
+    }
+  }
+  
+export const updateNewMessageBodyCreator=(body)=>{
+    return{
+      type:UPDATE_NEW_MESSAGE_BODY,body:body
     }
   }
 

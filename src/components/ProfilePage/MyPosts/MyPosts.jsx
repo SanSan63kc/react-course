@@ -38,7 +38,7 @@ const MyPosts = (props)=>{
                 onChange={onPostChange} 
                 className={classes.subscribe__input} 
                 type="text" name="name" 
-                /* placeholder="Напишите что-нибудь..." */ 
+                placeholder="Напишите что-нибудь..." 
                 value={props.newPostText}>
               </textarea>
               <button className={classes.subscribe__btn} onClick={addPost} type="button">Отправить</button>
