@@ -1,4 +1,4 @@
-  .subscribe {
+  .createPost {
     width: 100%; 
     max-width: 600px;
     display: flex;
@@ -7,7 +7,7 @@
     margin-top: 20px;
 }
 
-.subscribe__input {
+.createPost__input {
     border-radius: 3px;
     width: 70%;
     height: 30px;
@@ -25,16 +25,16 @@
     font-weight: 300;
 }
 
-.subscribe__input::placeholder {
+.createPost__input::placeholder {
     color: #ccc;
 }
 
-.subscribe__input:focus {
+.createPost__input:focus {
     outline: 0;
     border-color: green;
 }
 
-.subscribe__btn {
+.createPost__btn {
     border-radius: 3px;
     width: 30%;
     height: auto;
@@ -54,10 +54,10 @@
     transition: background .2s linear;
 }
 
-.subscribe__btn:hover {
+.createPost__btn:hover {
     background-color: green;
 }
 
-.subscribe__btn:focus {
+.createPost__btn:focus {
     outline: 0;
 }

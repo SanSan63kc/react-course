@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Header from './components/Header/Header';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
@@ -19,15 +19,10 @@ const App=(props)=>{
         <div className="profile__page__content">
           
           <Route path="/profile" 
-            render={()=><ProfilePage 
-              profilePage={props.state.profilePage}
-              dispatch={props.dispatch}
-            />}/>
+            render={()=><ProfilePage store={props.store}/>}/>
           
           <Route path="/dialogs" 
-            render={()=><Dialogs
-            store={props.store}
-          />}/>
+            render={()=><DialogsContainer store={props.store} />}/>
           
           <Route path="/news" component={News}/>
           <Route path="/music" component={Music}/>

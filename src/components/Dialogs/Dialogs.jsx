@@ -2,11 +2,10 @@ import React from 'react'
 import classes from './Dialogs.module.css'
 import DialogUserLink from './DialogUserLink/DialogUserLink'
 import DialogWithUser from './DialogWithUser/DialogWithUser'
-import {updateNewMessageBodyCreator,sendMessageCreator} from "../../redux/dialogs-reducer"
 
 const Dialogs = (props)=>{
 
-  let state=props.store.getState().dialogsPage;
+  let state=props.dialogsPage;
 
   let dialogElements=state.dialogsData
     .map(d=>
@@ -27,12 +26,12 @@ const Dialogs = (props)=>{
   let newMessageBody=state.newMessageBody
 
   let onSendMessageClick=()=>{
-    props.store.dispatch(sendMessageCreator())
+    props.sendMessage()
   }
 
   let onNewMessageChange=(e)=>{
     let body = e.target.value;
-    props.store.dispatch(updateNewMessageBodyCreator(body))
+    props.updateNewMessageBody(body)
   }
 
   return(
