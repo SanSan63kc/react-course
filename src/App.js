@@ -19,10 +19,10 @@ const App=(props)=>{
         <div className="profile__page__content">
           
           <Route path="/profile" 
-            render={()=><ProfilePage store={props.store}/>}/>
+            render={()=><ProfilePage /* store={props.store} *//>}/>
           
           <Route path="/dialogs" 
-            render={()=><DialogsContainer store={props.store} />}/>
+            render={()=><DialogsContainer /* store={props.store} */ />}/>
           
           <Route path="/news" component={News}/>
           <Route path="/music" component={Music}/>
