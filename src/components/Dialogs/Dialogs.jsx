@@ -12,6 +12,7 @@ const Dialogs = (props)=>{
       <DialogUserLink 
         name={d.name} 
         userId={d.id} 
+        key={d.id}
         userAvatar={d.avatar}
       />
       )
@@ -20,6 +21,7 @@ const Dialogs = (props)=>{
     .map(m=>
       <DialogWithUser 
         message={m.message}
+        key={m.id}
       />
   )
 
