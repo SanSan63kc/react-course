@@ -25,6 +25,14 @@ const Navbar = ()=>{
           <NavLink 
             className={classes.navbar__string} 
             activeClassName={classes.activeNav} 
+            to="/frends">
+            Друзья
+          </NavLink>
+        </div>
+        <div className={classes.navbar__item}>
+          <NavLink 
+            className={classes.navbar__string} 
+            activeClassName={classes.activeNav} 
             to="/news">
             Новости
           </NavLink>

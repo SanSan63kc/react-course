@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import FrendsContainer from './components/Frends/FrendsContainer';
 import Header from './components/Header/Header';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
@@ -19,10 +20,13 @@ const App=(props)=>{
         <div className="profile__page__content">
           
           <Route path="/profile" 
-            render={()=><ProfilePage /* store={props.store} *//>}/>
+            render={()=><ProfilePage />}/>
           
           <Route path="/dialogs" 
-            render={()=><DialogsContainer /* store={props.store} */ />}/>
+            render={()=><DialogsContainer  />}/>
+
+          <Route path="/frends" 
+            render={()=><FrendsContainer/>}/>
           
           <Route path="/news" component={News}/>
           <Route path="/music" component={Music}/>
