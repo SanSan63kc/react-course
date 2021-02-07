@@ -56,7 +56,7 @@ let Frends = (props) => {
         fullName: "Her s gory",
         status: "I'm musor",
         workedIn: "Ментовочка",
-        onlineNow: true /* он вообще всегда онлаен */,
+        onlineNow: true,/* он вообще всегда онлаен */
         location: { country: "Russia", city: "secret" },
       },
     ]);
@@ -64,46 +64,46 @@ let Frends = (props) => {
 
   return (
     <div className={classes.frendsPage}>
-      <div className={classes.usersList}>
+      <div className={classes.usersSector}>
         {props.users.map((u) => (
           <div className={classes.userCard} key={u.id}>
-            <div className={classes.userAvatar}>
-              <img className={classes.userAvatarPhoto} src={u.photoUrl} />
-            </div>
-            <div className={classes.userInfo__block}>
-              <div className={classes.fullName}>{u.fullName}</div>
-              <div className={classes.workedIn__text}>{u.workedIn}</div>
-              <div className={classes.locationName}>
-                {u.location.country + ", " + u.location.city}
+            <span>
+              <div className={classes.userAvatar}>
+                <img className={classes.userAvatarPhoto} src={u.photoUrl} />
               </div>
-            </div>
-            <div className={classes.follow__block}>
-              {u.followed ? (
-                <button
-                  className={classes.follow__btn}
-                  onClick={() => {
-                    props.unfollow(u.id);
-                  }}
-                >
-                  Подписан
-                </button>
-              ) : (
-                <button
-                  className={classes.follow__btn}
-                  onClick={() => {
-                    props.follow(u.id);
-                  }}
-                >
-                  Отписан
-                </button>
-              )}
-            </div>
+              <div>
+                {u.followed ? (
+                  <button
+                    className={classes.follow__btn}
+                    onClick={() => {
+                      props.unfollow(u.id);
+                    }}
+                  >
+                    Подписан
+                  </button>
+                ) : (
+                  <button
+                    className={classes.follow__btn}
+                    onClick={() => {
+                      props.follow(u.id);
+                    }}
+                  >
+                    Отписан
+                  </button>
+                )}
+              </div>
+            </span>
+            <span>
+              <span>
+                <div className={classes.fullName}>{u.fullName}</div>
+                <div className={classes.workedIn__text}>{u.workedIn}</div>
+              </span>
+              <span>
+                <div className={classes.locationName}>{u.location.country + ", " + u.location.city}</div>
+              </span>
+            </span>
           </div>
         ))}
-      </div>
-      <div className={classes.rightPanel}>
-        <div className={classes.firstPanel}>Там, где куча всяких параметров по поиску друзей</div>
-        <div className={classes.secondPanel}>Там, где возможные друзья</div>
       </div>
     </div>
   );
