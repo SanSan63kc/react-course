@@ -36,6 +36,11 @@
     cursor: pointer;
 }
 
+/* Возможно избыточна, пока не работает */
+.userAvatar{
+    cursor: pointer;
+}
+
 /* Блок информации о пользователе: Имя, Работа, где живёт */
 .userInfo__block{
     min-width: 200px;
