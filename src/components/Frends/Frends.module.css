@@ -130,4 +130,8 @@
     border-radius: 10px;
   }
 
-  
+  /* навигация пользователей по циферкам */
+
+  .selectedPage{
+      font-weight: 700;
+  }
