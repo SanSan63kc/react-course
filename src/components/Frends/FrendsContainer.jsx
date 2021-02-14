@@ -1,7 +1,41 @@
 import React from 'react'
+import * as axios from "axios";
+import Frends from "./Frends";
 import { connect } from 'react-redux'
 import { followAC, setUserAC, unfollowAC, setCurrentPageAC,setTotalUsersCountAC} from '../../redux/frends-reducer'
-import Frends from './Frends'
+
+class FrendsContainer extends React.Component{
+
+    componentDidMount(){
+      /* axios.get('https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}`).then(response=>{
+          this.props.setUsers(response.data.items); -- пример*/
+          axios.get(`http://localhost:3000/items?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response=>{
+            this.props.setUsers(response.data);        
+            /* this.props.setTotalUsersCount(response.data.totalCount)  - примерно так должен получать переменную totalCount из запроса*/
+            /* пока захардкодил так */
+            let totalCount
+            totalCount = 20
+            this.props.setTotalUsersCount(totalCount) 
+          }) 
+    }
+  
+    onPageChanged=(pageNumber)=>{
+      this.props.setCurrentPage(pageNumber)
+      axios.get(`http://localhost:3000/items?page=${pageNumber}&count=${this.props.pageSize}`).then(response=>{
+            this.props.setUsers(response.data);
+          })
+    }
+  
+    render(){
+      return <Frends totalUsersCount={this.props.totalUsersCount}
+                      pageSize={this.props.pageSize}
+                      currentPage={this.props.currentPage}
+                      onPageChanged={this.onPageChanged}
+                      users={this.props.users}
+                      follow={this.props.follow}
+                      unfollow={this.props.unfollow}/>
+    }
+  }
 
 let mapStateToProps=(state)=>{
     return{
@@ -32,4 +66,4 @@ let mapDispatchToProps=(dispatch)=>{
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Frends)
+export default connect(mapStateToProps, mapDispatchToProps)(FrendsContainer)
