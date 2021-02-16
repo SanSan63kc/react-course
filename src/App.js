@@ -7,7 +7,7 @@ import Header from './components/Header/Header';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
-import ProfilePage from './components/ProfilePage/ProfilePage';
+import ProfileContainer from './components/ProfilePage/ProfileContainer';
 import Settings from './components/Settings/Settings';
 
 const App=(props)=>{
@@ -20,7 +20,7 @@ const App=(props)=>{
         <div className="profile__page__content">
           
           <Route path="/profile" 
-            render={()=><ProfilePage />}/>
+            render={()=><ProfileContainer/>}/>
           
           <Route path="/dialogs" 
             render={()=><DialogsContainer  />}/>

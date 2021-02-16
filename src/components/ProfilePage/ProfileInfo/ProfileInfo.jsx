@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './ProfileInfo.module.css'
 
-const ProfileInfo = ()=>{
+const ProfileInfo = (props)=>{
     return(
       <div >
         <div className={classes.title__pict}>
@@ -9,6 +9,7 @@ const ProfileInfo = ()=>{
         </div>
         <div>
           ava+descr
+          <img src={props.profile.photoUrl}/>
         </div>
       </div>
     )

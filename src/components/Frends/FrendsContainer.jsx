@@ -2,8 +2,7 @@ import React from 'react'
 import * as axios from "axios";
 import Frends from './Frends';
 import { connect } from 'react-redux'
-import { followAC, setUserAC, unfollowAC, setCurrentPageAC,setTotalUsersCountAC,toggleIsFetchingAC} from '../../redux/frends-reducer'
-import preloader from '../../assets/images/loader.png'
+import { follow, setUsers, unfollow, setCurrentPage,setTotalUsersCount,toggleIsFetching} from '../../redux/frends-reducer'
 import Preloader from '../common/Preloader/Preloader';
 
 class FrendsContainer extends React.Component{
@@ -59,7 +58,8 @@ let mapStateToProps=(state)=>{
     }
 }
 
-let mapDispatchToProps=(dispatch)=>{
+/* Оставил этот код для понимания того, что заменил в connect */
+/* let mapDispatchToProps=(dispatch)=>{
     return{
         follow:(userId)=>{
             dispatch(followAC(userId))
@@ -80,6 +80,7 @@ let mapDispatchToProps=(dispatch)=>{
             dispatch(toggleIsFetchingAC(isFetching))
         }
     }
-}
+} */
 
-export default connect(mapStateToProps, mapDispatchToProps)(FrendsContainer)
+export default connect(mapStateToProps, 
+    {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching})(FrendsContainer)

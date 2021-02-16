@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from "./Frends.module.css";
+import {NavLink} from "react-router-dom" 
 
 let Frends =(props)=>{
     
@@ -15,16 +16,16 @@ let Frends =(props)=>{
     <div className={classes.frendsPage}>
                 <div className={classes.usersList}>
                 <div>
-                {pages.map(p=>{
-                    return <span className={props.currentPage===p && classes.selectedPage}
-                                onClick={(e)=>{props.onPageChanged(p)}}>
-                            {p}</span>
-                })}
+                    {pages.map(p=>{
+                        return <span className={props.currentPage===p && classes.selectedPage}
+                                    onClick={(e)=>{props.onPageChanged(p)}}>{p}</span>})}
                 </div>
                 {props.users.map((u) => (
                     <div className={classes.userCard} key={u.id}>
                     <div className={classes.userAvatar}>
-                        <img className={classes.userAvatarPhoto} src={u.photoUrl} />  {/* src={u.photoUrl} //-  так в моём json лежит */} {/* src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } */}
+                        <NavLink to={'/profile/'+u.id}>
+                            <img className={classes.userAvatarPhoto} src={u.photoUrl} />  {/* src={u.photoUrl} //-  так в моём json лежит */} {/* src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } */}
+                        </NavLink>
                     </div>
                     <div className={classes.userInfo__block}>
                         <div className={classes.fullName}>{u.fullName}</div>{/* в моём json лежит u.fullName */}
