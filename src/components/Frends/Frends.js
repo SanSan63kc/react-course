@@ -24,7 +24,7 @@ let Frends =(props)=>{
                     <div className={classes.userCard} key={u.id}>
                     <div className={classes.userAvatar}>
                         <NavLink to={'/profile/'+u.id}>
-                            <img className={classes.userAvatarPhoto} src={u.photoUrl} />  {/* src={u.photoUrl} //-  так в моём json лежит */} {/* src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } */}
+                            <img className={classes.userAvatarPhoto} src={u.avaUrl} />  {/* src={u.photoUrl} //-  так в моём json лежит */} {/* src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } */}
                         </NavLink>
                     </div>
                     <div className={classes.userInfo__block}>

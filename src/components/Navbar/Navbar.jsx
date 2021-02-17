@@ -10,7 +10,7 @@ const Navbar = ()=>{
             className={classes.navbar__string} 
             activeClassName={classes.activeNav} 
             to="/profile">
-            Профиль
+            Моя страница
           </NavLink>
         </div>
         <div className={classes.navbar__item}>

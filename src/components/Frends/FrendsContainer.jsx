@@ -11,14 +11,14 @@ class FrendsContainer extends React.Component{
         this.props.toggleIsFetching(true)
         /* axios.get('https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}`).then(response=>{
           this.props.setUsers(response.data.items); -- пример*/
-        axios.get(`http://localhost:3000/items?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+        axios.get(`http://localhost:3001/items?page=${this.props.currentPage}&count=${this.props.pageSize}`)
         .then(response=>{
             this.props.toggleIsFetching(false)
             this.props.setUsers(response.data);        
             /* this.props.setTotalUsersCount(response.data.totalCount)  - примерно так должен получать переменную totalCount из запроса*/
             /* пока захардкодил так */
             let totalCount
-            totalCount = 20
+            totalCount = 5
             this.props.setTotalUsersCount(totalCount) 
           }) 
     }
@@ -26,7 +26,7 @@ class FrendsContainer extends React.Component{
     onPageChanged=(pageNumber)=>{
         this.props.toggleIsFetching(true)
         this.props.setCurrentPage(pageNumber)
-        axios.get(`http://localhost:3000/items?page=${pageNumber}&count=${this.props.pageSize}`)
+        axios.get(`http://localhost:3001/items?page=${pageNumber}&count=${this.props.pageSize}`)
         .then(response=>{
             this.props.toggleIsFetching(false)
             this.props.setUsers(response.data);
