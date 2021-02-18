@@ -14,7 +14,7 @@ const ProfileInfo = (props)=>{
             
             <div className={styles.profile__ava}>
               <div className={styles.leftBlock_container}>
-                <img src={props.profile.avaUrl}/>
+                <img src={"props.profile.avaUrl"}/>
               </div>
             </div>
             {/* Блок подарков */}
@@ -22,7 +22,7 @@ const ProfileInfo = (props)=>{
               <div className={styles.leftBlock_container}>
                 <div className={styles.bounty__title}>
                   <div className={styles.bounty__staticText}>Подарки</div>
-                  <div className={styles.bounty__count}>{props.profile.bounty}</div>
+                  <div className={styles.bounty__count}>{"props.profile.bounty"}</div>
                 </div>
                 <div className={styles.bounty__content}>
                   <div className={styles.bounty__item}>
@@ -71,56 +71,56 @@ const ProfileInfo = (props)=>{
                 {/* Дата рождения */}
                 <div className={styles.birthData__block}>
                   <div className={styles.birthData__static}>День рождения:</div>
-                  <div className={styles.birthData__value}>{props.profile.birthData}</div>
+                  <div className={styles.birthData__value}>{"props.profile.birthData"}</div>
                 </div>
                 {/* Место работы */}
                 <div className={styles.work__block}>
                   <div className={styles.work__static}>Место работы:</div>
-                  <div className={styles.workedIn__value}>{props.profile.workedIn}</div>
+                  <div className={styles.workedIn__value}>{"props.profile.workedIn"}</div>
                 </div>
                 <div className={styles.mainInfo__title}>Основная информация</div>
                 <div className={styles.liveIn__block}>
                   <div className={styles.liveIn__static}>Родной город:</div>
-                  <div className={styles.liveIn__value}>{props.profile.location.city}</div>
+                  <div className={styles.liveIn__value}>{"props.profile.location.city"}</div>
                 </div>
                 <div className={styles.language__block}>
                   <div className={styles.language__static}>Языки:</div>
-                  <div className={styles.language__value}>{props.profile.location.country}</div>
+                  <div className={styles.language__value}>{"props.profile.location.country"}</div>
                 </div>
                 <div className={styles.mainInfo__title}>Контактная информация</div>
                 <div className={styles.skype__block}>
                   <div className={styles.skype__static}>Skype:</div>
-                  <div className={styles.skype__value}>{props.profile.skype}</div>
+                  <div className={styles.skype__value}>{"props.profile.skype"}</div>
                 </div>
                 <div className={styles.instagram__block}>
                   <div className={styles.instagram__static}>Instagram:</div>
-                  <div className={styles.instagram__value}>{props.profile.instagram}</div>
+                  <div className={styles.instagram__value}>{"props.profile.instagram"}</div>
                 </div>
                 <div className={styles.mainInfo__title}>Образование</div>
                 <div className={styles.studyIn__block}>
                   <div className={styles.studyIn__static}>Вуз:</div>
-                  <div className={styles.studyIn__value}>{props.profile.studyIn} {props.profile.studyEnd}</div>
+                  <div className={styles.studyIn__value}>{"props.profile.studyIn"} {"props.profile.studyEnd"}</div>
                 </div>
                 {/* Карточка со счётчиками пользователя (друзья, подписчики, фото, отметки, видео) */}
                 <div className={styles.mainInfo__card}>
                     <div className={styles.mainInfo__cardItem}>
-                      <div className={styles.mainInfo__cardCount}>{props.profile.frends}</div>
+                      <div className={styles.mainInfo__cardCount}>{"props.profile.frends"}</div>
                       <div className={styles.mainInfo__cardText}>друзей</div>
                     </div>
                     <div className={styles.mainInfo__cardItem}>
-                      <div className={styles.mainInfo__cardCount}>{props.profile.followers}</div>
+                      <div className={styles.mainInfo__cardCount}>{"props.profile.followers"}</div>
                       <div className={styles.mainInfo__cardText}>подписчиков</div>
                     </div>
                     <div className={styles.mainInfo__cardItem}>
-                      <div className={styles.mainInfo__cardCount}>{props.profile.photos}</div>
+                      <div className={styles.mainInfo__cardCount}>{"props.profile.photos"}</div>
                       <div className={styles.mainInfo__cardText}>фотографий</div>
                     </div>
                     <div className={styles.mainInfo__cardItem}>
-                      <div className={styles.mainInfo__cardCount}>{props.profile.marks}</div>
+                      <div className={styles.mainInfo__cardCount}>{"props.profile.marks"}</div>
                       <div className={styles.mainInfo__cardText}>отметок</div>
                     </div>
                     <div className={styles.mainInfo__cardItem}>
-                      <div className={styles.mainInfo__cardCount}>{props.profile.videos}</div>
+                      <div className={styles.mainInfo__cardCount}>{"props.profile.videos"}</div>
                       <div className={styles.mainInfo__cardText}>видео</div>
                     </div>      
                   </div> 
@@ -131,7 +131,7 @@ const ProfileInfo = (props)=>{
               <div className={styles.rightBlock_container} >
                 <div className={styles.myPhotos__title}>
                   <div className={styles.myPhotos__staticText}>Мои фотографии</div>
-                  <div className={styles.myPhotos__count}>{props.profile.photos}</div>
+                  <div className={styles.myPhotos__count}>{"props.profile.photos"}</div>
                 </div>
               </div>
             </div>

@@ -24,14 +24,14 @@ let Frends =(props)=>{
                     <div className={classes.userCard} key={u.id}>
                     <div className={classes.userAvatar}>
                         <NavLink to={'/profile/'+u.id}>
-                            <img className={classes.userAvatarPhoto} src={u.avaUrl} />  {/* src={u.photoUrl} //-  так в моём json лежит */} {/* src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } */}
+                            <img className={classes.userAvatarPhoto} src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } />  {/* src={u.photoUrl} //-  так в моём json лежит */} {/* src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } */}
                         </NavLink>
                     </div>
                     <div className={classes.userInfo__block}>
-                        <div className={classes.fullName}>{u.fullName}</div>{/* в моём json лежит u.fullName */}
+                        <div className={classes.fullName}>{u.name}</div>{/* в моём json лежит u.fullName */}
                         <div className={classes.workedIn__text}>{u.workedIn}</div>
                         <div className={classes.locationName}>
-                        {u.location.country + ", " + u.location.city}
+                        {"u.location.country + ", " + u.location.city"}
                         </div>
                     </div>
                     <div className={classes.follow__block}>
