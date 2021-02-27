@@ -2,6 +2,7 @@ import React from 'react'
 import classes from "./Frends.module.css";
 import {NavLink} from "react-router-dom" 
 import * as axios from "axios";
+import { usersAPI } from '../../api/api';
 
 let Frends =(props)=>{
     
@@ -38,44 +39,15 @@ let Frends =(props)=>{
                     <div className={classes.follow__block}>
                         {u.followed ? (
                         <button 
-                            /* disabled={props.followingInProgress.some(id=>id===u.id)} */
+                            disabled={props.followingInProgress.some(id=>id===u.id)}
                             className={classes.follow__btn} 
-                            onClick={() => {   
-                                props.toggleFollowingProgress(true, u.id)
-                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{
-                                    withCredentials:true,
-                                    headers:{
-                                        "API-KEY":"3afecc3d-ac12-4b50-9d4a-cf931ac93770"
-                                    }
-                                })
-                                .then(response=>{   
-                                    if (response.data.resultCode==0){
-                                        props.unfollow(u.id)
-                                    }
-                                    props.toggleFollowingProgress(false, u.id)
-                                })                         
-                                }} >
-                                Подписан
+                            onClick={() => {props.unfollow(u.id)}}>Подписан
                         </button>
                         ) : (
                         <button 
-                           /*  disabled={props.followingInProgress.some(id=>id===u.id)} */
+                            disabled={props.followingInProgress.some(id=>id===u.id)}
                             className={classes.follow__btn} 
-                            onClick={() => {                           
-                                props.toggleFollowingProgress(true, u.id)
-                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},{
-                                    withCredentials:true,
-                                    headers:{
-                                        "API-KEY":"3afecc3d-ac12-4b50-9d4a-cf931ac93770"
-                                    }})
-                                .then(response=>{   
-                                    if (response.data.resultCode==0){
-                                        props.follow(u.id)
-                                    }
-                                    props.toggleFollowingProgress(false, u.id)
-                                })                      
-                                }} >
-                                Отписан
+                            onClick={() => {props.follow(u.id)}}>Отписан
                         </button>
                         )}
                     </div>
