@@ -1,10 +1,8 @@
 import React from 'react'
-import * as axios from "axios";
 import Frends from './Frends';
 import { connect } from 'react-redux'
-import { follow, setUsers, unfollow, setCurrentPage,setTotalUsersCount,toggleIsFetching,toggleFollowingProgress,getUsers} from '../../redux/frends-reducer'
+import { follow, unfollow, setCurrentPage,toggleFollowingProgress,getUsers} from '../../redux/frends-reducer'
 import Preloader from '../common/Preloader/Preloader';
-import { usersAPI } from '../../api/api';
 
 class FrendsContainer extends React.Component{
 
@@ -28,8 +26,8 @@ class FrendsContainer extends React.Component{
                       follow={this.props.follow}
                       unfollow={this.props.unfollow}
                       toggleFollowingProgress={this.props.toggleFollowingProgress}
-                      followingInProgress={this.props.followingInProgress}
-                      
+                      followingInProgress={this.props.followingInProgress}  
+                      isAuth={this.props.isAuth}           
              />
              </>
     }
@@ -42,7 +40,8 @@ let mapStateToProps=(state)=>{
         totalUsersCount:state.frendsPage.totalUsersCount,
         currentPage:state.frendsPage.currentPage,
         isFetching:state.frendsPage.isFetching,
-        followingInProgress:state.frendsPage.followingInProgress
+        followingInProgress:state.frendsPage.followingInProgress,
+        isAuth:state.auth.isAuth
     }
 }
 

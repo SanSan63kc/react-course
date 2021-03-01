@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import classes from './Dialogs.module.css'
 import DialogUserLink from './DialogUserLink/DialogUserLink'
 import DialogWithUser from './DialogWithUser/DialogWithUser'
@@ -35,6 +36,8 @@ const Dialogs = (props)=>{
     let body = e.target.value;
     props.updateNewMessageBody(body)
   }
+  /* Проверка на залогиненность */
+  if (!props.isAuth) return <Redirect to={"/login"}/>
 
   return(
       <div className={classes.dialogs}>

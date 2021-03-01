@@ -1,9 +1,10 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import FrendsContainer from './components/Frends/FrendsContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import LoginPage from './components/Login/Login';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
@@ -27,6 +28,9 @@ const App=(props)=>{
 
           <Route path="/frends" 
             render={()=><FrendsContainer/>}/>
+
+          <Route path="/login" 
+            render={()=><LoginPage/>}/> 
           
           <Route path="/news" component={News}/>
           <Route path="/music" component={Music}/>

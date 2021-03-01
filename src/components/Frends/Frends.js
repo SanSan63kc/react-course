@@ -1,8 +1,6 @@
 import React from 'react'
 import classes from "./Frends.module.css";
-import {NavLink} from "react-router-dom" 
-import * as axios from "axios";
-import { usersAPI } from '../../api/api';
+import {NavLink, Redirect} from "react-router-dom" 
 
 let Frends =(props)=>{
     
@@ -13,7 +11,9 @@ let Frends =(props)=>{
     for (let i=1; i<=pagesCount; i++){
       pages.push(i)
     }
-    
+
+    if(!props.isAuth) return <Redirect to={"/login"}/>
+
     return <div>
     <div className={classes.frendsPage}>
                 <div className={classes.usersList}>
@@ -26,7 +26,7 @@ let Frends =(props)=>{
                     <div className={classes.userCard} key={u.id}>
                     <div className={classes.userAvatar}>
                         <NavLink to={'/profile/'+u.id}>
-                            <img className={classes.userAvatarPhoto} src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } />  {/* src={u.photoUrl} //-  так в моём json лежит */} {/* src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } */}
+                            <img className={classes.userAvatarPhoto} src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } alt={""}/>  {/* src={u.photoUrl} //-  так в моём json лежит */} {/* src={u.photos.small !=null ? u.photos.small:"https://vk.com/images/camera_200.png" } */}
                         </NavLink>
                     </div>
                     <div className={classes.userInfo__block}>
