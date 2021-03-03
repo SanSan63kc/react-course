@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { follow, unfollow, setCurrentPage,toggleFollowingProgress,getUsers} from '../../redux/frends-reducer'
 import Preloader from '../common/Preloader/Preloader';
 import { WithAuthRedirect } from '../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class FrendsContainer extends React.Component{
 
@@ -46,12 +47,8 @@ let mapStateToProps=(state)=>{
     }
 }
 
-
-let withRedirect = WithAuthRedirect(FrendsContainer)
-
-export default connect(mapStateToProps, 
-    {
-        follow, unfollow, /* setUsers, */ 
-        setCurrentPage, /* setTotalUsersCount, */ /* toggleIsFetching, */
-        toggleFollowingProgress,getUsers
-    })(FrendsContainer)
+export default compose(
+    WithAuthRedirect,
+    connect(mapStateToProps,{follow, unfollow, setCurrentPage, toggleFollowingProgress,getUsers})
+)
+(FrendsContainer)
