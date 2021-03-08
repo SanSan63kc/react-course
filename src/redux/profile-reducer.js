@@ -97,9 +97,10 @@ export const updateNewPostTextActionCreator=(text)=>{
   export const updateStatus=(status)=>(dispatch)=>{
     profileAPI.updateStatus(status)
     .then(response=>{  
-      if (response.data.resultCode===1){
-        dispatch(setStatus(response.data)); 
-      }            
+      /* if (response.data.resultCode===1){
+         
+      }  */
+      dispatch(setStatus(status));           
     })
   }
 
