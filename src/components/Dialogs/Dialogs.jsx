@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import classes from './Dialogs.module.css'
 import DialogUserLink from './DialogUserLink/DialogUserLink'
 import DialogWithUser from './DialogWithUser/DialogWithUser'
+import {Field, reduxForm} from 'redux-form'
 
 const Dialogs = (props)=>{
 
@@ -28,13 +29,8 @@ const Dialogs = (props)=>{
 
   let newMessageBody=state.newMessageBody
 
-  let onSendMessageClick=()=>{
-    props.sendMessage()
-  }
-
-  let onNewMessageChange=(e)=>{
-    let body = e.target.value;
-    props.updateNewMessageBody(body)
+  let addNewMessage=(values)=>{
+    props.sendMessage(values.newMessageBody)
   }
   /* Проверка на залогиненность */
   if (!props.isAuth) return <Redirect to={"/login"}/>
@@ -49,23 +45,23 @@ const Dialogs = (props)=>{
           {messagesElements}
 
           <div className={classes.addMess}>
-              <textarea
-                className={classes.addMess__input} 
-                value={newMessageBody} 
-                onChange={onNewMessageChange}
-                placeholder='Напишите сообщение'
-              >
-              </textarea>
-              <button 
-                className={classes.addMess__btn}
-                onClick={onSendMessageClick} 
-                type="button">
-                  Отправить
-              </button>
+          <AddMessageFormRedux onSubmit={addNewMessage}/>
           </div>  
         </div>   
       </div>
     )
 }
+
+const AddMessageForm=(props)=>{
+  return (<form onSubmit={props.handleSubmit}>
+            <div className={classes.addMess}>
+              <Field component={"textarea"} name="newMessageBody" placeholder='Напишите сообщение' className={classes.addMess__input}/>
+              <button className={classes.addMess__btn}>Отправить</button>
+            </div>          
+          </form>
+  )
+}
+
+const AddMessageFormRedux=reduxForm({form:"dialogAddMessageForm"})(AddMessageForm)
 
 export default Dialogs;

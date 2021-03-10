@@ -62,7 +62,7 @@
 
  /* Начало добавляемого элемента */
  .addMess {
-  width: 100%; 
+  width: 900px; 
   max-width: auto;
   display: flex;
   justify-content: space-between;
