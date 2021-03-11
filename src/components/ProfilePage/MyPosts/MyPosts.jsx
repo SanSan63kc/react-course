@@ -2,6 +2,10 @@ import classes from './MyPosts.module.css';
 import React from 'react'
 import Post from './Post/Post';
 import { Field, reduxForm } from 'redux-form';
+import {required,maxLengthCreator} from "../../../utils/validators/validators"
+import { Textarea } from '../../common/FormsControl/FormsControls';
+
+const maxLength10 = maxLengthCreator(10) /* обязательно делать так, а не передавать "после ="" сразу в валидатор филда*/
 
 const MyPosts = (props)=>{
 
@@ -9,7 +13,8 @@ const MyPosts = (props)=>{
     return(
       <form onSubmit={props.handleSubmit}>     
         <div className={classes.createPost}>
-          <Field className={classes.createPost__input} name="newPostText" component="textarea"/>
+          <Field className={classes.createPost__input} name="newPostText" component={Textarea} 
+                 validate={[required,maxLength10]} placeholder="введите сообщение"/>
           <button 
             className={classes.createPost__btn} 
            >Отправить</button>

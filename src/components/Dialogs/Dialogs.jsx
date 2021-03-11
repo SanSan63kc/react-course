@@ -4,6 +4,10 @@ import classes from './Dialogs.module.css'
 import DialogUserLink from './DialogUserLink/DialogUserLink'
 import DialogWithUser from './DialogWithUser/DialogWithUser'
 import {Field, reduxForm} from 'redux-form'
+import { Textarea } from '../common/FormsControl/FormsControls'
+import { maxLengthCreator, required } from '../../utils/validators/validators'
+
+const maxLength=maxLengthCreator(50)
 
 const Dialogs = (props)=>{
 
@@ -52,10 +56,13 @@ const Dialogs = (props)=>{
     )
 }
 
+
+
 const AddMessageForm=(props)=>{
   return (<form onSubmit={props.handleSubmit}>
             <div className={classes.addMess}>
-              <Field component={"textarea"} name="newMessageBody" placeholder='Напишите сообщение' className={classes.addMess__input}/>
+              <Field component={Textarea} name="newMessageBody" placeholder='Напишите сообщение' className={classes.addMess__input}
+              validate={[required, maxLength]} placeholder="введите сообщение"/>
               <button className={classes.addMess__btn}>Отправить</button>
             </div>          
           </form>
